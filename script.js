@@ -1,25 +1,30 @@
+// Defining getComputerChoice function
+
 function getComputerChoice(){
-    const choices =["Rock","Paper","Scissors"];
-    const randomChoice = Math.floor(Math.random() * choices.length);
+    const choices =["rock","paper","scissors"];
+    const randomChoice = Math.floor(Math.random() * choices.length);  //this is to enable computer generate a random choice
     return choices[randomChoice];
 }
 //console.log(getComputerChoice());
+
+// Defining playRound function
 
 function playRound(playerSelection, computerSelection){
     if(!playerSelection)
     {
         return "Your selection is invalid";
     }
-    playerSelection = playerSelection.toLowerCase();
+    playerSelection = playerSelection.toLowerCase();  //Convert playerSelection to lowercase for allowing case-insensitive comparison
 
-    if(playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors")
+    if(playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors")  //Check if playerSelection is valid
     {
         return "Your selection is invalid";
     }
 
+    //Codes to Determine the winner
     if(playerSelection === computerSelection)
     {
-        return "It's a tie!"
+        return "It's a draw!";
     }
     else if(playerSelection === "rock" && computerSelection === "scissors"||
             playerSelection === "paper" && computerSelection === "rock"||
@@ -27,13 +32,14 @@ function playRound(playerSelection, computerSelection){
     {
         return `You win! ${playerSelection} beats ${computerSelection}`;
     } 
-    else {return `You lose! ${computerSelection} beats ${playerSelection}`}       
+    else {return `You lose! ${computerSelection} beats ${playerSelection}`;}       
 }
 
 //const playerSelection = 'Rock';
 //const computerSelection = getComputerChoice();
 //console.log(playRound(playerSelection, computerSelection));
 
+// Defining game function
 
 function game(){
     let playerScore = 0;
@@ -59,4 +65,4 @@ function game(){
     else {console.log('The game is draw');}
 }
 
-game();
+game(); //Calling the game function
